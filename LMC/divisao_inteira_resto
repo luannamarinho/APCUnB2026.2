@@ -1,0 +1,31 @@
+        INP
+        STA num
+
+        INP
+        STA div
+
+        LDA zero
+        STA quoc
+
+inicio  LDA num
+        SUB div
+        BRP continua
+        BRA fim
+
+continua STA num
+        LDA quoc
+        ADD um
+        STA quoc
+        BRA inicio
+
+fim     LDA quoc
+        OUT
+        LDA num
+        OUT
+        HLT
+
+num     DAT
+div     DAT
+quoc    DAT
+um      DAT 1
+zero    DAT 0
