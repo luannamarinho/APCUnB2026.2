@@ -1,31 +1,41 @@
         INP
         STA num
 
-        INP
-        STA div
+        LDA um
+        STA fat
 
+loop    LDA num
+        BRZ fim
+
+        STA cont
         LDA zero
-        STA quoc
+        STA soma
 
-inicio  LDA num
-        SUB div
-        BRP continua
-        BRA fim
+mult    LDA soma
+        ADD fat
+        STA soma
 
-continua STA num
-        LDA quoc
-        ADD um
-        STA quoc
-        BRA inicio
+        LDA cont
+        SUB um
+        STA cont
+        BRZ troca
+        BRA mult
 
-fim     LDA quoc
-        OUT
+troca   LDA soma
+        STA fat
+
         LDA num
+        SUB um
+        STA num
+        BRA loop
+
+fim     LDA fat
         OUT
         HLT
 
 num     DAT
-div     DAT
-quoc    DAT
+fat     DAT
+cont    DAT
+soma    DAT
 um      DAT 1
 zero    DAT 0
