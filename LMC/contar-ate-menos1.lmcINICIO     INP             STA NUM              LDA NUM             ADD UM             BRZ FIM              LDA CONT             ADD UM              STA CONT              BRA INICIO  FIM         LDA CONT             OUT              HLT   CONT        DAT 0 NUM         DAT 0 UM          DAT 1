@@ -1,0 +1,21 @@
+INICIO     INP
+            STA NUM
+
+            LDA NUM
+            ADD UM
+            BRZ FIM
+
+            LDA CONT
+            ADD UM 
+            STA CONT
+
+            BRA INICIO
+
+FIM         LDA CONT
+            OUT 
+            HLT 
+
+CONT        DAT 0
+NUM         DAT 0
+UM          DAT 1    
+    
