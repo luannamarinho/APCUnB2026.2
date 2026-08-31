@@ -1,0 +1,34 @@
+        LDA zero
+        STA pos
+
+        LDA zero
+        STA neg
+
+inicio  INP
+        STA num
+
+        LDA num
+        BRZ terminou
+        BRP positivo
+
+        LDA neg
+        ADD um
+        STA neg
+        BRA inicio
+
+positivo LDA pos
+        ADD um
+        STA pos
+        BRA inicio
+
+terminou LDA pos
+        OUT
+        LDA neg
+        OUT
+        HLT
+
+num     DAT
+pos     DAT
+neg     DAT
+um      DAT 1
+zero    DAT 0
