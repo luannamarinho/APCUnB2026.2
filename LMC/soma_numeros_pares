@@ -1,0 +1,37 @@
+        LDA zero
+        STA soma
+
+inicio  INP
+        STA num
+
+        LDA num
+        SUB fim
+        BRZ terminou
+
+        LDA num
+        STA temp
+
+par     LDA temp
+        SUB dois
+        BRZ adiciona
+        BRP continua
+        BRA inicio
+
+continua STA temp
+        BRA par
+
+adiciona LDA soma
+        ADD num
+        STA soma
+        BRA inicio
+
+terminou LDA soma
+        OUT
+        HLT
+
+num     DAT
+temp    DAT
+soma    DAT
+zero    DAT 0
+dois    DAT 2
+fim     DAT -1
