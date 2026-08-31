@@ -1,0 +1,27 @@
+        INP
+        STA num
+
+        INP
+        STA div
+
+inicio  LDA num
+        SUB div
+        BRZ multiplo
+        BRP continua
+        BRA nao
+
+continua STA num
+        BRA inicio
+
+multiplo LDA sim
+        OUT
+        HLT
+
+nao     LDA nao1
+        OUT
+        HLT
+
+num     DAT
+div     DAT
+sim     DAT 1
+nao1    DAT 0
