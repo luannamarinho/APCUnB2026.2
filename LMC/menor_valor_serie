@@ -1,0 +1,25 @@
+        INP
+        STA menor
+
+inicio  INP
+        STA num
+        LDA num
+        SUB fim
+        BRZ terminou
+
+        LDA menor
+        SUB num
+        BRP troca
+        BRA inicio
+
+troca   LDA num
+        STA menor
+        BRA inicio
+
+terminou LDA menor
+        OUT
+        HLT
+
+menor   DAT
+num     DAT
+fim     DAT -1
